@@ -1,0 +1,12 @@
+%h1= "Búsqueda de productos por: #{@key}"
+%br
+%br
+%br
+.row
+  - @products.each_with_index do |product, index|
+    .col-lg-3.product
+      = link_to image_tag("#{product.picture}", :border => 0, class: 'img-circle'), product
+      %h2= product.name
+      %p= number_to_currency(product.price, precision: 0)
+      %p
+        = link_to 'Detalle »', product, class: 'btn btn-default'

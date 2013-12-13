@@ -11,9 +11,9 @@
         .navbar-header
           %a.navbar-brand{href: "/"} Tienda Virtual
         .navbar-collapse.collapse
-          %form.navbar-form.navbar-right{role: "form"}
+          %form.navbar-form.navbar-right{role: 'form', :action => search_products_path, :method => 'get' }
             .form-group
-              %input.form-control{placeholder: "Producto...", type: "search"}
+              %input.form-control{name: 'key', placeholder: "Producto...", type: "search"}
             %button.btn.btn-success{type: "submit"}
               %span.glyphicon.glyphicon-search
     .container

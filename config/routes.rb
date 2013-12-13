@@ -1,8 +1,10 @@
 ExampleStore::Application.routes.draw do
-  resources :products
+  resources :products do
+    get 'search', on: :collection
+  end
   root :to => 'products#index'
   get 'products/:id/buy', to: 'products#buy'
-
+  #get 'products/search', to: 'products#search'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
