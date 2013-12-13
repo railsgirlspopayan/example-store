@@ -4,6 +4,12 @@ ExampleStore::Application.routes.draw do
   end
   root :to => 'products#index'
   get 'products/:id/buy', to: 'products#buy'
+
+  namespace :admin do
+    resources :products
+  end
+
+
   #get 'products/search', to: 'products#search'
 
   # The priority is based upon order of creation:

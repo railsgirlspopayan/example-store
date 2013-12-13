@@ -1,0 +1,33 @@
+-if notice
+  .alert.alert-success.alert-dismissable
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} ×
+    = notice
+
+.admin-products
+  %h1 Listado de productos
+  %br
+  %br
+  %br
+  %table.table.table-hover.table-striped.admin
+    %tr
+      %th Nombre
+      %th Descripción
+      %th Imagen
+      %th Precio
+      %th Cantidad
+      %th
+      %th
+
+    - @products.each do |product|
+      %tr
+        %td= product.name
+        %td= product.description
+        %td= product.picture
+        %td= product.price
+        %td= product.quantity
+        %td= link_to 'Editar', edit_admin_product_path(product)
+        %td= link_to 'Eliminar', admin_product_url(product), :method => :delete, :data => { :confirm => 'Está seguro que desea eliminar el producto?' }
+
+  %br
+
+  = link_to 'Nuevo Producto', new_admin_product_path
