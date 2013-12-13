@@ -5,4 +5,9 @@ class Product
   field :picture, type: String
   field :price, type: Float
   field :quantity, type: Integer
+
+  def decrement_quantity
+    self.quantity-=1
+  end
+
 end

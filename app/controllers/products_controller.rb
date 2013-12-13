@@ -80,4 +80,14 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def buy
+    @product = Product.find(params[:id])
+    @product.decrement_quantity
+    @product.save!
+    respond_to do |format|
+      format.html { redirect_to @product, notice: 'Producto adquirido' }
+    end
+  end
+
 end

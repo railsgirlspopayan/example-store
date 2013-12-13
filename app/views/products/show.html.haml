@@ -1,21 +1,33 @@
-%p#notice= notice
+-if notice
+  .alert.alert-success.alert-dismissable
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} ×
+    = notice
 
-%p
-  %b Name:
-  = @product.name
-%p
-  %b Description:
-  = @product.description
-%p
-  %b Picture:
-  = @product.picture
-%p
-  %b Price:
-  = @product.price
-%p
-  %b Quantity:
-  = @product.quantity
-
-= link_to 'Edit', edit_product_path(@product)
-\|
-= link_to 'Back', products_path
+.show_product
+  .row
+    .col-lg-12
+      %h1= @product.name
+  .row
+    .col-lg-4
+      %img.product-image{src: "#{@product.picture}"}
+    .col-lg-4
+      %h3
+        Producto
+      %p= @product.name
+      %h3
+        Precio
+      %p= number_to_currency(@product.price, precision: 0)
+      %h3
+        Descripción
+      %p= @product.description
+      %h3
+        Disponibles
+      %p= "#{@product.quantity}"
+      %br
+      %p
+        %a.btn.btn-addcart.btn-primary{href: "#{product_url}/buy"}
+          Comprar
+      .col-lg-4
+  .row
+    .col-lg-12
+      = link_to 'Volver a Inicio', products_path
