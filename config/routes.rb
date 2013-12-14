@@ -1,4 +1,6 @@
 ExampleStore::Application.routes.draw do
+  devise_for :admins
+
   resources :products do
     get 'search', on: :collection
   end

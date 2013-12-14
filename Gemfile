@@ -41,3 +41,4 @@ gem 'bson_ext'
 
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.0.3.0'
+gem 'devise'
